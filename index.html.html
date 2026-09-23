@@ -1,0 +1,1528 @@
+<!DOCTYPE html>
+
+<html lang="th">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Thewinterqx — Artist Portfolio</title>
+<meta content="Thewinterqx — พอร์ตโฟลิโอนักวาดฟรีแลนซ์ รับวาด Fanart, OC, ภาพประกอบ, ปกนิยาย และออกแบบตัวละคร" name="description"/>
+<meta content="#fffaf5" name="theme-color"/>
+<meta content="Thewinterqx — Artist Portfolio" property="og:title"/>
+<meta content="Freelance Illustrator · Fanart · OC · Book Cover · Character Design" property="og:description"/>
+<meta content="website" property="og:type"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+    :root{
+      --cream:#fffaf5;
+      --pink:#f45b91;
+      --pink-soft:#ffd8e7;
+      --pink-pale:#fff0f6;
+      --blue:#8fd9ef;
+      --blue-soft:#dff5fc;
+      --navy:#183f69;
+      --text:#395574;
+      --white:#ffffff;
+      --line:#c9e6f2;
+      --shadow:0 18px 45px rgba(40,75,105,.10);
+      --radius:28px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--cream);
+      color:var(--text);
+      font-family:"Kanit","Noto Sans Thai","Segoe UI",sans-serif;
+      line-height:1.65;
+      font-weight:300;
+      overflow-x:hidden;
+    }
+
+    p, .section-desc, .card p, .style-body p, .small, .faq p, .check-list, .mini-list {
+      font-weight:300;
+    }
+    strong, b { font-weight:500; }
+
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+    .wrap{width:min(1140px, calc(100% - 40px));margin:auto}
+    
+
+    /* Decorative blobs */
+    .blob,.sparkle{position:fixed;pointer-events:none;z-index:-1}
+    .blob{filter:blur(.2px);opacity:.85}
+    .blob.a{width:240px;height:240px;background:var(--blue-soft);border-radius:55% 45% 60% 40%;left:-90px;top:-80px;transform:rotate(18deg)}
+    .blob.b{width:300px;height:300px;background:#ffe0ea;border-radius:45% 55% 40% 60%;right:-110px;top:40px;transform:rotate(-20deg)}
+    .blob.c{width:200px;height:180px;background:#e6f8fd;border-radius:55% 45% 50% 50%;left:-70px;bottom:-70px}
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:20;
+      backdrop-filter:blur(14px);
+      background:rgba(255,250,245,.84);
+      border-bottom:1px solid rgba(201,230,242,.65);
+    }
+    nav{
+      display:flex;align-items:center;justify-content:space-between;
+      min-height:74px;gap:20px;
+    }
+    .brand{
+      font-weight:900;
+      letter-spacing:.04em;
+      color:var(--navy);
+      font-size:1.08rem;
+    }
+    .brand span{color:var(--pink)}
+    .navlinks{display:flex;gap:8px;flex-wrap:wrap}
+    .navlinks a{
+      padding:9px 13px;border-radius:999px;font-size:.92rem;font-weight:700;
+    }
+    .navlinks a:hover{background:var(--pink-pale);color:var(--pink)}
+
+    .hero{
+      padding:82px 0 70px;
+      background:linear-gradient(110deg,
+        #eef8f4 0%,
+        #f7fbf4 24%,
+        #fffaf0 52%,
+        #fff5ee 74%,
+        #ffecef 100%
+      );
+    }
+    .hero-grid{
+      display:grid;grid-template-columns:1.02fr .98fr;gap:55px;align-items:center;
+    }
+    .eyebrow{
+      color:var(--pink);font-weight:900;letter-spacing:.12em;
+      font-size:.78rem;text-transform:uppercase;margin-bottom:12px;
+    }
+    h1{
+      font-size:clamp(3rem,7vw,5.9rem);
+      line-height:.96;margin:0 0 22px;
+      letter-spacing:-.05em;color:var(--navy);
+    }
+    h1 em{color:var(--pink);font-style:normal}
+    .hero-copy{font-size:1.13rem;max-width:620px}
+    .hero-copy strong{color:var(--navy)}
+    .hero-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+    .btn{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:14px 20px;border-radius:999px;font-weight:900;
+      border:1px solid transparent;transition:.2s ease;
+    }
+    .btn.primary{background:var(--pink);color:white;box-shadow:0 12px 24px rgba(244,91,145,.24)}
+    .btn.secondary{background:white;border-color:var(--line);color:var(--navy)}
+    .btn:hover{transform:translateY(-2px)}
+
+    .hero-art{
+      position:relative;min-height:460px;
+      display:grid;place-items:center;
+    }
+    .frame{
+      width:min(470px,92%);aspect-ratio:1/1.02;background:linear-gradient(180deg,#eadff0,#c4a8bd);
+      border:10px solid white;border-radius:34px;box-shadow:var(--shadow);
+      transform:rotate(3.2deg);position:relative;overflow:hidden;
+    }
+    .frame img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:2;
+}
+    .frame::before{
+        display:none;
+    }
+.frame::after{
+  content:"✦";
+  position:absolute;
+  right:12px;
+  bottom:0;
+  font-size:70px;
+  color:#ff719f;
+  text-shadow:0 3px 0 white;
+  transform:rotate(-6deg);
+  z-index:3;
+}
+    }
+    .ribbon{
+      position:absolute;left:3%;top:3%;background:#f6a1be;width:120px;height:120px;
+      border-radius:22px;transform:rotate(-12deg);z-index:-1;
+    }
+    .bubble{
+      position:absolute;right:-2%;top:7%;width:90px;height:90px;
+      background:var(--pink-soft);border-radius:50%;
+    }
+    .tiny-note{
+      position:absolute;bottom:12%;left:2%;background:white;border:1px solid var(--line);
+      padding:10px 14px;border-radius:18px;box-shadow:var(--shadow);font-weight:800;color:var(--navy);
+    }
+
+    section{padding:75px 0}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:30px}
+    .section-kicker{color:var(--pink);font-weight:900;letter-spacing:.11em;font-size:.78rem;text-transform:uppercase}
+    h2{font-size:clamp(2rem,4vw,3.2rem);margin:.2rem 0 0;color:var(--navy);letter-spacing:-.04em}
+    .section-desc{max-width:680px;margin:8px 0 0}
+
+    .works{
+      display:grid;grid-template-columns:repeat(3,1fr);gap:22px;
+    }
+    .card{
+      background:white;border:1.4px solid var(--line);border-radius:26px;overflow:hidden;
+      box-shadow:0 10px 35px rgba(40,75,105,.06);transition:.2s ease;
+    }
+    .card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+    .art{
+      aspect-ratio:1.08/1;
+      background:linear-gradient(135deg,#baf4fb,#ffd6ea);
+      position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;
+    }
+    .art.one{background:repeating-linear-gradient(135deg,#b7f4fb 0 10px,#8ce8f6 10px 15px,#efcaff 15px 22px,#d9f7ff 22px 30px)}
+    .art.two{background:
+      radial-gradient(circle at 72% 23%, #f9fdff 0 7%, transparent 8%),
+      linear-gradient(145deg,#1f356a,#5b5ce4 55%,#ffb3d4 100%);
+    }
+    .art.three{background:linear-gradient(180deg,#f3cbd7,#f9e9ef)}
+    .art .label{
+      background:rgba(255,255,255,.82);padding:9px 14px;border-radius:999px;
+      font-weight:900;color:var(--navy);backdrop-filter:blur(7px);
+    }
+    .card-body{padding:19px 20px 23px}
+    .type{color:var(--pink);font-size:.8rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+    .card h3{margin:6px 0 5px;color:var(--navy);font-size:1.28rem}
+    .card p{margin:0;font-size:.96rem}
+
+    /* ===== Clickable My Gallery ===== */
+    .gallery-card{cursor:pointer;outline:none;position:relative}
+    .gallery-card:focus-visible{box-shadow:0 0 0 4px rgba(244,91,145,.17),var(--shadow);transform:translateY(-3px)}
+    .gallery-card .art > .gallery-preview-img{
+      position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;
+    }
+    .gallery-card .art .label{position:relative;z-index:3}
+    .gallery-card .view-pill{left:14px;bottom:13px}
+    .gallery-card:hover .view-pill{transform:translateY(-2px);background:#fff}
+    .gallery-card .art::after{
+      content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
+      background:linear-gradient(180deg,transparent 48%,rgba(24,63,105,.12));
+    }
+
+    .about-grid,.commission-grid{
+      display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:stretch;
+    }
+    .soft-box{
+      background:white;border:1.4px solid var(--line);border-radius:28px;padding:30px;
+      box-shadow:0 10px 35px rgba(40,75,105,.06)
+    }
+    .soft-box.pink{background:linear-gradient(180deg,#fff3f8,#fff)}
+    .soft-box.blue{background:linear-gradient(180deg,#eefbfe,#fff)}
+    .soft-box h3{margin-top:0;color:var(--navy);font-size:1.35rem}
+    .mini-list{display:grid;gap:11px;margin-top:20px}
+    .mini-list div{
+      display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border-radius:17px;
+      background:rgba(255,255,255,.8);border:1px solid #e8f4f8
+    }
+    .icon{
+      width:32px;height:32px;display:grid;place-items:center;border-radius:11px;
+      background:var(--pink-pale);color:var(--pink);font-weight:900;flex:none
+    }
+
+    .process{
+      display:grid;grid-template-columns:repeat(4,1fr);gap:15px
+    }
+    .step{
+      background:white;border:1.4px solid var(--line);border-radius:24px;padding:20px;
+    }
+    .num{
+      width:38px;height:38px;border-radius:50%;display:grid;place-items:center;
+      background:var(--pink);color:white;font-weight:900;margin-bottom:13px
+    }
+    .step strong{display:block;color:var(--navy);margin-bottom:4px}
+
+    .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .price{
+      border-radius:25px;padding:24px;border:1.4px solid var(--line);background:white;
+    }
+    .price.featured{background:linear-gradient(180deg,#fff0f6,#fff);border-color:#f6b7ce}
+    .price h3{margin:0;color:var(--navy)}
+    .price p{font-size:.93rem}
+    .price .tag{
+      display:inline-block;padding:6px 10px;background:var(--blue-soft);border-radius:999px;
+      font-size:.77rem;font-weight:900;margin-bottom:12px;color:var(--navy)
+    }
+
+    .contact{
+      background:linear-gradient(135deg,#ffe5ef,#e9f9fd);
+      border:1.4px solid var(--line);border-radius:34px;padding:38px;
+      display:grid;grid-template-columns:1.1fr .9fr;gap:25px;align-items:center;
+    }
+    .socials{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+    .social{
+      background:white;padding:14px 16px;border-radius:17px;border:1px solid #b8daea;
+      font-weight:700;color:var(--navy);display:flex;justify-content:space-between;align-items:center;gap:10px;
+      font-size:1rem;line-height:1.45;min-height:58px;
+    }
+    .social:hover{border-color:#f2a9c2}
+    .small{font-size:.9rem;opacity:.84}
+
+    footer{padding:30px 0 45px;text-align:center;color:#7891a7;font-size:.9rem}
+
+    @media(max-width:900px){
+      .hero-grid,.about-grid,.commission-grid,.contact{grid-template-columns:1fr}
+      .works,.price-grid{grid-template-columns:1fr 1fr}
+      .process{grid-template-columns:1fr 1fr}
+      .hero-art{min-height:390px}
+    }
+    @media(max-width:620px){
+      .wrap{width:min(100% - 26px,1140px)}
+      nav{min-height:auto;padding:10px 0 9px;display:block}
+      .brand{display:inline-block;margin-bottom:8px}
+      .navlinks{
+        display:flex;flex-wrap:nowrap;gap:6px;width:100%;overflow-x:auto;
+        padding:0 0 4px;scrollbar-width:none;-webkit-overflow-scrolling:touch;
+      }
+      .navlinks::-webkit-scrollbar{display:none}
+      .navlinks a{flex:none;padding:8px 11px;font-size:.84rem;background:rgba(255,255,255,.55)}
+      .hero{padding-top:48px}
+      .works,.price-grid,.process{grid-template-columns:1fr}
+      .section-head{display:block}
+      .hero-art{min-height:330px}
+      .frame{width:88%}
+      .contact{padding:25px}
+      h1{font-size:3.5rem}
+    }
+
+
+
+
+    /* ===== Ordering process ===== */
+    .process-section{background:linear-gradient(180deg,rgba(255,255,255,.48),rgba(255,240,246,.38))}
+    .process .step{position:relative;overflow:hidden;min-height:190px;box-shadow:0 10px 30px rgba(40,75,105,.045)}
+    .process .step::after{content:"";position:absolute;width:70px;height:70px;border-radius:50%;right:-24px;bottom:-26px;background:var(--blue-soft);opacity:.65}
+    .process .step:nth-child(even)::after{background:var(--pink-pale)}
+    .process .step strong{font-size:1.04rem;font-weight:600}
+    .process .step p{margin:0;font-size:.94rem;line-height:1.8;position:relative;z-index:1}
+    a:focus-visible, button:focus-visible, summary:focus-visible{outline:3px solid rgba(244,91,145,.28);outline-offset:3px}
+
+    /* ===== Portfolio enhancements ===== */
+    .style-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .style-card{background:#fff;border:1.4px solid var(--line);border-radius:26px;overflow:hidden;box-shadow:0 10px 35px rgba(40,75,105,.06);transition:.22s ease}
+    .style-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+    .style-art{aspect-ratio:1/1;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+    .style-art.bw{background:linear-gradient(145deg,#fff 0%,#e7e7eb 55%,#252935 56%,#11131b 100%)}
+    .style-art.color{background:radial-gradient(circle at 22% 28%,#ffb5d7 0 14%,transparent 15%),radial-gradient(circle at 78% 22%,#a4e9f8 0 18%,transparent 19%),linear-gradient(145deg,#ffd9ea,#bcebf5 55%,#d7c2f8)}
+    .style-art.texture{background:repeating-linear-gradient(115deg,#f1e7df 0 6px,#e7d5c6 6px 9px,#faf5ef 9px 15px)}
+    .style-art.rough{background:linear-gradient(140deg,#9fd8ff 0 28%,#ffd1e4 28% 58%,#cfc1f7 58% 100%)}
+    .style-art::after{content:"";width:66%;height:66%;border-radius:45% 55% 52% 48%;background:rgba(255,255,255,.58);border:2px dashed rgba(255,255,255,.82);transform:rotate(-7deg)}
+    .style-art .label{position:absolute;z-index:1;background:rgba(255,255,255,.86);padding:9px 14px;border-radius:999px;font-weight:900;color:var(--navy);backdrop-filter:blur(6px)}
+    .style-body{padding:18px 18px 21px}
+    .style-body h3{margin:6px 0 5px;color:var(--navy);font-size:1.18rem}
+    .style-body p{margin:0;font-size:.92rem}
+
+    .commission-layout{display:grid;grid-template-columns:1.15fr .85fr;gap:18px;align-items:stretch}
+    .info-panel{background:#fff;border:1.4px solid var(--line);border-radius:25px;padding:24px;box-shadow:0 10px 35px rgba(40,75,105,.06)}
+    .info-panel.pink{background:linear-gradient(180deg,#fff2f7,#fff)}
+    .info-panel.blue{background:linear-gradient(180deg,#eefbfe,#fff)}
+    .check-list{display:grid;gap:10px;margin-top:16px}
+    .check-list div{display:flex;gap:10px;align-items:flex-start}
+    .check{width:27px;height:27px;display:grid;place-items:center;border-radius:10px;background:var(--pink-pale);color:var(--pink);font-weight:900;flex:none}
+    .faq{display:grid;gap:12px}
+    .faq details{background:#fff;border:1.4px solid var(--line);border-radius:19px;padding:15px 18px}
+    .faq summary{cursor:pointer;font-weight:900;color:var(--navy)}
+    .faq p{margin:10px 0 0}
+    .notice{display:flex;align-items:flex-start;gap:8px;margin-top:18px;padding:14px 18px;border-radius:18px;background:#eff9fd;border:1px solid #c8e9f4;color:var(--navy);font-weight:500;font-size:.98rem;line-height:1.7;max-width:760px}
+    @media(max-width:900px){.style-grid{grid-template-columns:1fr 1fr}.commission-layout{grid-template-columns:1fr}}
+    @media(max-width:620px){.style-grid{grid-template-columns:1fr}}
+
+
+    /* ===== Typography: cute, clean, non-handwritten ===== */
+    h1, h2, h3, .brand, .navlinks a, .btn, .section-kicker, .eyebrow, .type, .tag, .notice, .num, .social {
+      font-family:"Kanit",sans-serif;
+    }
+    body { font-weight:400; }
+    h1 { font-weight:700; letter-spacing:-.025em; }
+    h2 { font-weight:600; letter-spacing:-.015em; }
+    h3 { font-weight:600; }
+    .brand, .navlinks a, .btn { font-weight:500; }
+    .hero-copy, .section-desc, .card p, .style-body p, .price p, .faq p, .term p {
+      font-family:"Kanit",sans-serif;
+      font-weight:400;
+    }
+
+
+    /* ===== About Me redesign ===== */
+    .about-profile{
+      display:grid;
+      grid-template-columns:minmax(280px,.85fr) minmax(0,1.15fr);
+      gap:30px;
+      align-items:stretch;
+    }
+    .artist-photo-card{
+      background:linear-gradient(145deg,#fffaf6,#fff1f6 55%,#eefbfe);
+      border:1.4px solid var(--line);
+      border-radius:30px;
+      padding:16px;
+      box-shadow:var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+    .artist-photo-card::before{
+      content:"THEWINTERQX";
+      position:absolute;right:18px;top:16px;
+      font-size:.72rem;font-weight:600;letter-spacing:.12em;color:#8ca2b5;
+      z-index:3;
+    }
+    .artist-photo{
+      aspect-ratio:4/4.8;
+      border-radius:23px;
+      overflow:hidden;
+      background:linear-gradient(145deg,#ffd7e7,#dff7fb);
+      border:1px solid rgba(201,230,242,.9);
+      position:relative;
+      display:grid;place-items:center;
+    }
+    .artist-photo img{width:100%;height:100%;object-fit:cover;display:block}
+    .artist-slide{
+      position:absolute;inset:0;opacity:0;z-index:1;
+      transition:opacity .35s ease, transform .35s ease;
+      transform:scale(1.015);
+    }
+    .artist-slide.active{opacity:1;z-index:2;transform:scale(1)}
+    .artist-photo-placeholder{
+      position:absolute;inset:0;display:grid;place-items:center;text-align:center;
+      padding:28px;color:var(--navy);font-weight:500;line-height:1.6;z-index:0;
+    }
+    .artist-photo-placeholder span{display:block;font-size:2rem;margin-bottom:8px}
+    .artist-photo-nav{
+      position:absolute;top:50%;transform:translateY(-50%);z-index:6;
+      width:39px;height:39px;border-radius:50%;border:1px solid rgba(255,255,255,.9);
+      background:rgba(255,255,255,.82);color:var(--navy);
+      display:grid;place-items:center;font:500 1.55rem/1 "Kanit",sans-serif;
+      cursor:pointer;box-shadow:0 8px 20px rgba(40,75,105,.12);backdrop-filter:blur(6px);
+      transition:.18s ease;
+    }
+    .artist-photo-nav:hover{background:#fff;color:var(--pink);transform:translateY(-50%) scale(1.05)}
+    .artist-photo-nav.prev{left:12px}
+    .artist-photo-nav.next{right:12px}
+    .artist-photo-dots{
+      position:absolute;left:50%;bottom:12px;transform:translateX(-50%);z-index:6;
+      display:flex;gap:7px;padding:6px 9px;border-radius:999px;background:rgba(255,255,255,.72);
+      backdrop-filter:blur(6px);
+    }
+    .artist-photo-dot{
+      width:8px;height:8px;border:0;border-radius:50%;padding:0;background:#c8d7e2;cursor:pointer;
+      transition:.18s ease;
+    }
+    .artist-photo-dot.active{width:20px;border-radius:999px;background:var(--pink)}
+    .artist-caption{margin:13px 5px 2px;font-size:.88rem;color:#718aa0;text-align:center}
+    .about-story{
+      background:rgba(255,255,255,.88);
+      border:1.4px solid var(--line);
+      border-radius:30px;
+      padding:30px;
+      box-shadow:0 12px 34px rgba(40,75,105,.06);
+      position:relative;
+    }
+    .about-story h3{margin:0 0 9px;color:var(--navy);font-size:1.45rem}
+    .about-story > p{margin:0 0 20px;max-width:680px}
+    .about-tags{display:flex;gap:9px;flex-wrap:wrap;margin:0 0 22px}
+    .about-tag{padding:7px 12px;border-radius:999px;background:var(--pink-pale);color:var(--navy);font-size:.85rem;font-weight:500;border:1px solid #f8d4e1}
+    .about-tag:nth-child(2){background:var(--blue-soft);border-color:#caedf6}
+    .about-tag:nth-child(3){background:#f0eafa;border-color:#e2d8f5}
+    .tip-note{
+      position:relative;
+      margin-top:22px;
+      padding:19px 20px 17px 22px;
+      background:#fff6c9;
+      border:1px solid #efdfa0;
+      border-radius:14px;
+      box-shadow:5px 7px 0 rgba(233,205,111,.16);
+      transform:rotate(-.8deg);
+      color:#5f5a47;
+    }
+    .tip-note::before{
+      content:"TIP NOTE";
+      position:absolute;top:-11px;left:18px;
+      padding:4px 10px;border-radius:999px;
+      background:#ff8caf;color:#fff;
+      font-size:.7rem;font-weight:600;letter-spacing:.08em;
+      transform:rotate(1.5deg);
+    }
+    .tip-note strong{color:var(--navy)}
+    .tip-note p{margin:0;font-size:.93rem;line-height:1.7}
+    @media(max-width:900px){.about-profile{grid-template-columns:1fr}.artist-photo-card{max-width:520px;width:100%;margin:auto}}
+    @media(max-width:620px){.about-story{padding:23px}.artist-photo-card{padding:12px}.about-profile{gap:20px}}
+
+
+    /* ===== Clickable Art Style Gallery ===== */
+    .art-styles-section{background:linear-gradient(180deg,rgba(255,255,255,.22),rgba(255,246,250,.55))}
+    .interactive-style{cursor:pointer;outline:none;position:relative}
+    .interactive-style:focus-visible{box-shadow:0 0 0 4px rgba(244,91,145,.17),var(--shadow);transform:translateY(-3px)}
+    .style-preview{position:relative}
+    .style-preview > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+    .style-preview .label{z-index:3}
+    .style-preview-fallback{position:absolute;inset:0;display:grid;place-content:center;gap:5px;text-align:center;color:var(--navy);z-index:0;font-weight:500}
+    .style-preview-fallback span{font-size:2rem;color:var(--pink)}
+    .style-preview-fallback small{font-size:.9rem}
+    .view-pill{position:absolute;left:16px;bottom:14px;z-index:4;background:rgba(255,255,255,.9);border:1px solid rgba(201,230,242,.95);box-shadow:0 7px 18px rgba(40,75,105,.08);padding:7px 11px;border-radius:999px;color:var(--navy);font-size:.78rem;font-weight:500;transition:.2s ease}
+    .interactive-style:hover .view-pill{transform:translateY(-2px);background:#fff}
+
+    .style-modal{position:fixed;inset:0;z-index:100;display:none;place-items:center;padding:24px}
+    .style-modal.is-open{display:grid}
+    .style-modal-backdrop{position:absolute;inset:0;background:rgba(24,63,105,.36);backdrop-filter:blur(8px)}
+    .style-modal-panel{position:relative;z-index:1;width:min(920px,100%);max-height:min(88vh,820px);overflow:auto;background:#fffaf7;border:1px solid rgba(255,255,255,.88);border-radius:30px;box-shadow:0 30px 90px rgba(24,63,105,.23);padding:26px}
+    .style-modal-close{position:absolute;right:18px;top:16px;width:42px;height:42px;border:1px solid var(--line);border-radius:50%;background:white;color:var(--navy);font:500 1.6rem/1 "Kanit",sans-serif;cursor:pointer;z-index:3}
+    .style-modal-close:hover{background:var(--pink-pale);color:var(--pink)}
+    .style-modal-head{padding-right:58px;margin-bottom:18px}
+    .style-modal-head h3{font-size:clamp(1.7rem,3vw,2.35rem);margin:4px 0 2px;color:var(--navy)}
+    .style-modal-head p{margin:0;color:#718aa0}
+    .style-modal-main{position:relative;aspect-ratio:16/10;overflow:hidden;border-radius:24px;border:1px solid var(--line);background:linear-gradient(135deg,#fff0f6,#eaf9fd);display:grid;place-items:center}
+    .style-modal-main img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#fff;z-index:2}
+    .modal-image-fallback{display:grid;gap:8px;text-align:center;color:var(--navy);padding:30px;z-index:1}
+    .modal-image-fallback span{font-size:2.6rem;color:var(--pink)}
+    .style-thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+    .style-thumb{position:relative;aspect-ratio:4/3;border:2px solid transparent;border-radius:16px;overflow:hidden;background:linear-gradient(135deg,#fff1f6,#eefbfe);cursor:pointer;padding:0;transition:.18s ease}
+    .style-thumb:hover{transform:translateY(-2px)}
+    .style-thumb.active{border-color:var(--pink);box-shadow:0 6px 18px rgba(244,91,145,.13)}
+    .style-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+    .style-thumb-fallback{position:absolute;inset:0;display:grid;place-items:center;color:var(--navy);font:500 .82rem/1.3 "Kanit",sans-serif;padding:8px;text-align:center}
+
+    .gallery-nav{
+      position:absolute;top:50%;transform:translateY(-50%);z-index:5;
+      width:44px;height:44px;border-radius:50%;border:1px solid rgba(201,230,242,.95);
+      background:rgba(255,255,255,.92);color:var(--navy);cursor:pointer;
+      font:500 1.8rem/1 "Kanit",sans-serif;display:grid;place-items:center;
+      box-shadow:0 8px 22px rgba(24,63,105,.12);transition:.18s ease;
+    }
+    .gallery-nav:hover{background:#fff;color:var(--pink);transform:translateY(-50%) scale(1.05)}
+    .gallery-nav.prev{left:14px}
+    .gallery-nav.next{right:14px}
+    .gallery-counter{
+      position:absolute;right:14px;bottom:12px;z-index:5;
+      padding:6px 10px;border-radius:999px;background:rgba(24,63,105,.72);
+      color:#fff;font-size:.78rem;font-weight:500;backdrop-filter:blur(6px);
+    }
+    body.modal-open{overflow:hidden}
+
+    @media(max-width:620px){
+      .style-modal{padding:12px}
+      .style-modal-panel{border-radius:23px;padding:20px 14px 16px}
+      .style-modal-close{right:12px;top:12px}
+      .style-modal-main{aspect-ratio:4/5}
+      .style-thumbs{gap:8px}
+      .view-pill{left:12px;bottom:11px}
+      .gallery-nav{width:39px;height:39px;font-size:1.55rem}
+      .gallery-nav.prev{left:8px}.gallery-nav.next{right:8px}
+    }
+
+
+    /* ===== Commission scale table ===== */
+    .commission-section{background:linear-gradient(180deg,rgba(255,255,255,.2),rgba(238,251,254,.42))}
+    .commission-work-box{
+      display:grid;grid-template-columns:.8fr 1.2fr;gap:22px;align-items:center;
+      background:#fff;border:1.4px solid var(--line);border-radius:28px;padding:26px;
+      box-shadow:0 12px 32px rgba(40,75,105,.06);margin-bottom:22px;
+    }
+    .commission-work-box h3{margin:0 0 7px;color:var(--navy);font-size:1.3rem}
+    .commission-work-box p{margin:0;line-height:1.75}
+    .commission-types{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .commission-types span{background:linear-gradient(135deg,#fff7fa,#f2fbfd);border:1px solid #e5f0f4;border-radius:16px;padding:11px 13px;font-weight:400;color:var(--navy)}
+
+    .scale-price-card{background:#fff;border:1.4px solid var(--line);border-radius:30px;padding:27px;box-shadow:var(--shadow)}
+    .scale-price-head{display:flex;justify-content:space-between;gap:20px;align-items:flex-end;margin-bottom:18px}
+    .scale-price-head h3{margin:5px 0 4px;color:var(--navy);font-size:1.55rem}
+    .scale-price-head p{margin:0;max-width:650px}
+    .scale-note{flex:none;max-width:310px;background:var(--pink-pale);border:1px solid #f7d3df;color:var(--navy);padding:9px 12px;border-radius:14px;font-size:.84rem;font-weight:400}
+    .scale-table-wrap{overflow:auto;border:1px solid #e4f0f5;border-radius:22px}
+    .scale-table{width:100%;border-collapse:collapse;min-width:620px;background:#fff}
+    .scale-table th,.scale-table td{padding:15px 17px;text-align:left;border-bottom:1px solid #eaf2f5}
+    .scale-table th{background:#f8fcfd;color:var(--navy);font-size:.86rem;font-weight:600}
+    .scale-table tbody tr:last-child td{border-bottom:0}
+    .scale-table tbody tr:hover td{background:#fff9fb}
+    .scale-table td:first-child{display:flex;align-items:center;gap:10px;color:var(--navy)}
+    .scale-badge{width:31px;height:31px;display:inline-grid;place-items:center;border-radius:10px;background:var(--pink-pale);color:var(--pink);font-size:.78rem;font-weight:600;flex:none}
+    .scale-price{font-weight:500;color:#91a4b3}
+
+    /* ===== Terms of Service ===== */
+    .terms-section{position:relative;background:linear-gradient(110deg,#fffaf4 0%,#fff7f1 45%,#fff0f6 100%);overflow:hidden}
+    .terms-section::after{content:"♡";position:absolute;right:4%;top:38px;font-size:120px;color:rgba(244,91,145,.08);transform:rotate(10deg);pointer-events:none}
+    .terms-board{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .term-card{display:grid;grid-template-columns:auto 1fr;gap:13px;align-items:start;background:rgba(255,255,255,.88);border:1.4px solid var(--line);border-radius:21px;padding:18px 19px;box-shadow:0 8px 24px rgba(40,75,105,.045)}
+    .term-card:nth-child(3n+2){background:linear-gradient(135deg,#fffafd,#fff)}
+    .term-num{width:34px;height:34px;border-radius:11px;display:grid;place-items:center;background:var(--pink-pale);color:var(--pink);font-size:.78rem;font-weight:600}
+    .term-card:nth-child(even) .term-num{background:var(--blue-soft);color:var(--navy)}
+    .term-card h3{margin:0 0 4px;color:var(--navy);font-size:1rem;font-weight:500}
+    .term-card p{margin:0;line-height:1.75;font-weight:400}
+    .terms-tip{display:flex;gap:12px;align-items:flex-start;margin-top:18px;background:#fff6c9;border:1px solid #efdfa0;border-radius:16px;padding:15px 17px;color:#5f5a47;box-shadow:4px 6px 0 rgba(233,205,111,.13)}
+    .terms-tip span{color:var(--pink);font-size:1.1rem;line-height:1.5}
+    .terms-tip p{margin:0;line-height:1.7}
+
+    @media(max-width:900px){
+      .commission-work-box{grid-template-columns:1fr}
+      .scale-price-head{display:block}
+      .scale-note{margin-top:12px;max-width:none;display:inline-block}
+      .terms-board{grid-template-columns:1fr}
+    }
+    @media(max-width:620px){
+      .commission-types{grid-template-columns:1fr}
+      .commission-work-box,.scale-price-card{padding:20px}
+      .scale-table{min-width:500px}.scale-table th,.scale-table td{padding:13px 14px}
+      .term-card{padding:16px}
+    }
+
+    /* ===== FAQ typography: easier Thai reading ===== */
+    #faq h2{
+      font-family:"Kanit",sans-serif;
+      font-weight:600;
+      letter-spacing:0;
+      line-height:1.28;
+    }
+    #faq .section-desc{
+      font-family:"Kanit",sans-serif;
+      font-size:1rem;
+      font-weight:400;
+      line-height:1.8;
+      letter-spacing:0;
+    }
+    #faq .faq{gap:14px;}
+    #faq .faq details{
+      padding:0;
+      overflow:hidden;
+      transition:border-color .2s ease, box-shadow .2s ease;
+    }
+    #faq .faq details[open]{border-color:#f3bfd1;box-shadow:0 10px 26px rgba(40,75,105,.055)}
+    #faq .faq summary{
+      list-style:none;
+      font-family:"Kanit",sans-serif;
+      font-size:1.04rem;
+      font-weight:500;
+      line-height:1.65;
+      letter-spacing:0;
+      color:var(--navy);
+      padding:17px 52px 17px 20px;
+      position:relative;
+    }
+    #faq .faq summary::-webkit-details-marker{display:none}
+    #faq .faq summary::after{
+      content:"+";position:absolute;right:18px;top:50%;transform:translateY(-50%);
+      width:28px;height:28px;display:grid;place-items:center;border-radius:50%;
+      background:var(--pink-pale);color:var(--pink);font-size:1.15rem;font-weight:500;
+    }
+    #faq .faq details[open] summary::after{content:"–";background:var(--blue-soft);color:var(--navy)}
+    #faq .faq p{
+      font-family:"Kanit",sans-serif;
+      font-size:1rem;
+      font-weight:400;
+      line-height:1.85;
+      letter-spacing:0;
+      color:var(--text);
+      margin:0;
+      padding:0 20px 18px;
+      max-width:900px;
+    }
+    @media(max-width:620px){
+      #faq .faq summary{font-size:1rem;}
+      #faq .faq p{font-size:.96rem;}
+    }
+
+  
+
+    /* ===== Commission Brief Contact Form ===== */
+    #contact.contact-section{background:linear-gradient(180deg,rgba(255,255,255,.25),rgba(255,240,246,.55))}
+    .contact-shell{
+      background:linear-gradient(135deg,#fff7fb 0%,#ffffff 46%,#eefbfe 100%);
+      border:1.4px solid var(--line);border-radius:34px;padding:32px;
+      box-shadow:var(--shadow);position:relative;overflow:hidden;
+    }
+    .contact-shell::after{content:"♡";position:absolute;right:-24px;top:-55px;font-size:180px;line-height:1;color:rgba(244,91,145,.055);transform:rotate(12deg);pointer-events:none}
+    .contact-intro{max-width:760px;margin-bottom:26px;position:relative;z-index:1}
+    .contact-intro h2{margin-top:4px}
+    .contact-intro p{margin:9px 0 0;max-width:720px}
+    .commission-contact-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr);gap:22px;align-items:start;position:relative;z-index:1}
+    .brief-form-card,.before-send-card{background:rgba(255,255,255,.9);border:1.4px solid var(--line);border-radius:26px;box-shadow:0 10px 32px rgba(40,75,105,.055)}
+    .brief-form-card{padding:24px}
+    .before-send-card{padding:22px;position:sticky;top:96px}
+    .brief-form-head{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin-bottom:19px}
+    .brief-form-head h3,.before-send-card h3{margin:0;color:var(--navy);font-size:1.2rem}
+    .brief-form-head p{margin:5px 0 0;font-size:.9rem;color:#718aa0}
+    .brief-chip{flex:none;padding:7px 10px;border-radius:999px;background:var(--pink-pale);border:1px solid #f8d4e1;color:var(--pink);font-size:.76rem;font-weight:600}
+    .brief-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+    .brief-field{display:grid;gap:7px}
+    .brief-field.full{grid-column:1/-1}
+    .brief-field label{font-size:.9rem;font-weight:500;color:var(--navy)}
+    .brief-field label span{color:var(--pink)}
+    .brief-field input,.brief-field select,.brief-field textarea{
+      width:100%;border:1.4px solid #d9ebf2;border-radius:15px;background:#fff;color:var(--text);
+      font:400 .95rem/1.5 "Kanit",sans-serif;padding:12px 13px;outline:none;transition:.18s ease;
+    }
+    .brief-field textarea{min-height:116px;resize:vertical}
+    .brief-field input:focus,.brief-field select:focus,.brief-field textarea:focus{border-color:#f5a3c0;box-shadow:0 0 0 4px rgba(244,91,145,.09)}
+    .brief-help{font-size:.78rem;color:#8499aa;margin-top:-2px}
+    .brief-consent{display:flex;gap:10px;align-items:flex-start;margin:18px 0 0;padding:13px 14px;border-radius:16px;background:#fff8fb;border:1px solid #f6d8e4}
+    .brief-consent input{margin-top:5px;accent-color:var(--pink)}
+    .brief-consent label{font-size:.88rem;line-height:1.65}
+    .brief-consent a{color:var(--pink);font-weight:500;text-decoration:underline;text-underline-offset:3px}
+    .brief-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+    .brief-submit,.brief-copy{
+      border:0;border-radius:999px;padding:13px 18px;font:600 .93rem/1 "Kanit",sans-serif;cursor:pointer;transition:.18s ease;
+    }
+    .brief-submit{background:var(--pink);color:#fff;box-shadow:0 10px 22px rgba(244,91,145,.22)}
+    .brief-copy{background:var(--blue-soft);color:var(--navy);border:1px solid #caedf6}
+    .brief-submit:hover,.brief-copy:hover{transform:translateY(-2px)}
+    .brief-status{min-height:24px;margin:10px 3px 0;font-size:.83rem;color:#648197}
+    .before-send-card h3{margin-bottom:13px}
+    .before-list{display:grid;gap:10px;margin-bottom:19px}
+    .before-item{display:grid;grid-template-columns:31px 1fr;gap:10px;align-items:start;padding:11px 12px;border-radius:15px;background:#fff;border:1px solid #e8f2f6}
+    .before-icon{width:31px;height:31px;display:grid;place-items:center;border-radius:10px;background:var(--pink-pale);color:var(--pink);font-weight:600}
+    .before-item:nth-child(even) .before-icon{background:var(--blue-soft);color:var(--navy)}
+    .before-item strong{display:block;color:var(--navy);font-size:.88rem;margin-bottom:1px}
+    .before-item span{font-size:.82rem;line-height:1.55;color:#6f8799}
+    .contact-preview{padding:14px;border-radius:17px;background:#f8fcfd;border:1px dashed #c9e6f2;margin-bottom:18px}
+    .contact-preview small{display:block;color:#8aa0b1;margin-bottom:5px}
+    .contact-preview strong{color:var(--navy)}
+    .contact-preview p{margin:6px 0 0;font-size:.83rem;line-height:1.65;color:#70889b}
+    .contact-social-title{display:flex;align-items:center;gap:8px;margin:6px 0 12px;color:var(--navy);font-size:1.03rem;font-weight:700;line-height:1.5}
+    .contact-socials{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .contact-socials .social{font-size:1rem;padding:14px 16px}
+    @media(max-width:900px){.commission-contact-grid{grid-template-columns:1fr}.before-send-card{position:static}.contact-shell{padding:25px}}
+    @media(max-width:620px){.brief-grid{grid-template-columns:1fr}.brief-field.full{grid-column:auto}.contact-shell{padding:19px;border-radius:26px}.brief-form-card,.before-send-card{padding:18px}.brief-form-head{display:block}.brief-chip{display:inline-block;margin-top:9px}.contact-socials{grid-template-columns:1fr}.brief-actions{display:grid}.brief-submit,.brief-copy{width:100%;padding:14px 16px}.contact-social-title{font-size:1rem}.notice{font-size:.95rem;padding:13px 15px;border-radius:16px}}
+
+  </style>
+</head>
+<body>
+<div class="blob a"></div>
+<div class="blob b"></div>
+<div class="blob c"></div>
+<header>
+<div class="wrap">
+<nav aria-label="เมนูหลัก">
+<a class="brand" href="#home">thewinter<span>qx</span> ✿</a>
+<div class="navlinks">
+<a href="#about">About Me</a>
+<a href="#styles">Art Styles</a>
+<a href="#works">Gallery</a>
+<a href="#process">How It Works</a>
+<a href="#commission">Commission</a>
+<a href="#terms">Terms</a>
+<a href="#faq">FAQ</a>
+<a href="#contact">Contact</a>
+</div>
+</nav>
+</div>
+</header>
+<main id="home">
+<section class="hero">
+<div class="wrap hero-grid">
+<div>
+<div class="eyebrow">Illustrator • Fanart • Book Cover</div>
+<h1>THEWINTERQX<br/></h1>
+<p class="hero-copy">
+            สวัสดีค่ะ สายรุ้ง — Thewinterqx นักวาดฟรีแลนซ์จากไทย 🌷<br/>
+            รับวาด Fanart / OC, ภาพประกอบ, ปกนิยาย และออกแบบตัวละคร<br/>
+<strong>มีไอเดียในใจหรืออยากสร้างผลงานด้วยกัน แวะมาคุยรายละเอียดก่อนได้เสมอค่ะ ♡</strong>
+</p>
+<div class="hero-buttons">
+<a class="btn primary" href="#styles">ดูผลงาน → </a>
+<a class="btn secondary" href="#contact">สนใจร่วมงาน ♡ </a>
+</div>
+</div>
+<div aria-label="ภาพตกแต่งตัวอย่าง" class="hero-art">
+<div class="ribbon"></div>
+<div class="bubble"></div>
+<div class="frame">
+<img src="assets/images/hero.jpg" alt="ผลงาน Thewinterqx">
+</div>
+<div class="tiny-note">made with ♡ by thewinterqx</div>
+</div>
+</div>
+</section>
+<section id="about">
+<div class="wrap">
+<div class="section-head">
+<div>
+<div class="section-kicker">About Me</div>
+<h2>รู้จักสายรุ้งกันนิดนึง ♡</h2>
+<p class="section-desc">พื้นที่เล็ก ๆ เพื่อให้ทุกคนได้รู้จักสายรุ้งเพิ่มขึ้นค่ะ </p>
+</div>
+</div>
+<div class="about-profile">
+<div class="artist-photo-card">
+<div class="artist-photo" id="artistPhotoSlider" aria-label="รูปนักวาด Thewinterqx 3 ภาพ">
+<img class="artist-slide active" alt="รูปนักวาด Thewinterqx ภาพที่ 1" src="assets/images/artist.jpg"/>
+<img class="artist-slide" alt="รูปนักวาด Thewinterqx ภาพที่ 2" src="assets/images/artist-2.jpg"/>
+<img class="artist-slide" alt="รูปนักวาด Thewinterqx ภาพที่ 3" src="assets/images/artist-3.jpg"/>
+<div class="artist-photo-placeholder"><div><span>♡</span>ใส่รูปนักวาด 3 ภาพที่นี่<br/><small>artist.jpg · artist-2.jpg · artist-3.jpg</small></div></div>
+<button class="artist-photo-nav prev" id="artistPrev" type="button" aria-label="รูปนักวาดก่อนหน้า">‹</button>
+<button class="artist-photo-nav next" id="artistNext" type="button" aria-label="รูปนักวาดถัดไป">›</button>
+<div class="artist-photo-dots" id="artistPhotoDots" aria-label="เลือกรูปนักวาด">
+<button class="artist-photo-dot active" type="button" aria-label="ดูรูปนักวาดภาพที่ 1"></button>
+<button class="artist-photo-dot" type="button" aria-label="ดูรูปนักวาดภาพที่ 2"></button>
+<button class="artist-photo-dot" type="button" aria-label="ดูรูปนักวาดภาพที่ 3"></button>
+</div>
+</div>
+<p class="artist-caption"> Boonsita Wicheanpanya (Sairung) · เลื่อนดูรูปได้ ♡ </p>
+</div>
+<div class="about-story">
+<h3>สวัสดีค่ะ สายรุ้ง — Thewinterqx 🌷</h3>
+<p>สายรุ้งนะคะ อายุ 24 ปีแล้ว เป็นคุณแม่(แมว) แล้วก็เป็นเสาหลักของบ้านค่ะ ต้องดูแลคุณแม่กับคุณป้าที่อายุเยอะแล้ว (รักษาตัวเค้าด้วย) สามารถแวะสนับสนุนผลงานกันได้นะคะ </p>
+<div class="about-tags">
+<span class="about-tag">♡ เป็นกันเอง</span>
+<span class="about-tag">☁ คุยรายละเอียดได้</span>
+<span class="about-tag">✦ อัปเดตงานเป็นระยะ</span>
+</div>
+<div class="mini-list">
+<div><span class="icon">♡</span><span><strong>เวลาทำงาน</strong><br/>ส่วนใหญ่จะวาดช่วงเย็น ๆ เป็นต้นไป และวันหยุดค่ะ</span></div>
+<div><span class="icon">✦</span><span><strong>สไตล์การคุยงาน</strong><br/>เค้ายืดหยุ่นมาก ๆ ไม่ซีเรียสเลย ไม่ดุ ไม่วีน </span></div>
+</div>
+<div class="tip-note">
+<p><strong>ข้อความเล็ก ๆ จากสายรุ้ง:</strong> ถ้ายังไม่แน่ใจ บอกสิ่งที่ชอบมาคร่าว ๆ ได้ค่ะ รุ้งจะคอยให้คำปรึกษาแบะแนะนำเอง ♡</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="art-styles-section" id="styles">
+<div class="wrap">
+<div class="section-head">
+<div>
+<div class="section-kicker">FIND YOUR STYLE</div>
+<h2>Art Styles</h2>
+<p class="section-desc">เลือกสไตล์ที่ชอบได้เลย มีให้เลือกทั้งหมด 3 สไตล์ค่ะ </p>
+</div>
+</div>
+<div class="style-grid style-gallery-grid">
+<article class="style-card interactive-style" data-images="assets/images/styles/pencil-1.jpg|assets/images/styles/pencil-2.jpg|assets/images/styles/pencil-3.jpg" data-style="Pencil &amp; Texture" role="button" tabindex="0">
+<div class="style-art bw style-preview">
+<img alt="ตัวอย่าง Pencil &amp; Texture" loading="lazy" src="assets/images/styles/pencil-1.jpg"/>
+<div class="style-preview-fallback"><span>✎</span><small>Pencil &amp; Texture</small></div>
+<div class="label">Pencil</div>
+<div class="view-pill">ดูผลงาน 3 ภาพ →</div>
+</div>
+<div class="style-body">
+<div class="type">STYLE 01</div>
+<h3>Pencil &amp; Texture</h3>
+<p>ลายเส้นดินสอนุ่ม ๆ บนเทกเจอร์กระดาษ เหมาะกับภาพที่เรียบง่ายและให้บรรยากาศอบอุ่น</p>
+</div>
+</article>
+<article class="style-card interactive-style" data-images="assets/images/styles/fullcolor-1.jpg|assets/images/styles/fullcolor-2.jpg|assets/images/styles/fullcolor-3.jpg" data-style="Full Color" role="button" tabindex="0">
+<div class="style-art color style-preview">
+<img alt="ตัวอย่าง Full Color" loading="lazy" src="assets/images/styles/fullcolor-1.jpg"/>
+<div class="style-preview-fallback"><span>✦</span><small>Full Color</small></div>
+<div class="label">FULL COLOR</div>
+<div class="view-pill">ดูผลงาน 3 ภาพ →</div>
+</div>
+<div class="style-body">
+<div class="type">STYLE 02</div>
+<h3>Full Color</h3>
+<p>ลงสีเต็มรูปแบบ เหมาะกับภาพที่ต้องการรายละเอียดที่ชัดเจน เน้นบรรยากาศรอบ ๆ  ♡</p>
+</div>
+</article>
+<article class="style-card interactive-style" data-images="assets/images/styles/rough-1.jpg|assets/images/styles/rough-2.jpg|assets/images/styles/rough-3.jpg" data-style="Rough Color" role="button" tabindex="0">
+<div class="style-art rough style-preview">
+<img alt="ตัวอย่าง Rough Color" loading="lazy" src="assets/images/styles/rough-1.jpg"/>
+<div class="style-preview-fallback"><span>♡</span><small>Rough Color</small></div>
+<div class="label">ROUGH COLOR</div>
+<div class="view-pill">ดูผลงาน 3 ภาพ →</div>
+</div>
+<div class="style-body">
+<div class="type">STYLE 03</div>
+<h3>Rough Color</h3>
+<p>ลงสีแบบ rough สำหรับงานที่อยากได้ความเป็นธรรมชาติ สบาย ๆ และยังคงเสน่ห์ของเส้นร่าง</p>
+</div>
+</article>
+</div>
+<div class="notice"><strong>♡ กดที่การ์ดแต่ละสไตล์</strong> เพื่อเปิดแกลเลอรี แล้วเลือกดูภาพตัวอย่างด้านล่างได้</div>
+</div>
+</section>
+<section id="works">
+<div class="wrap">
+<div class="section-head">
+<div>
+<div class="section-kicker">SELECTED WORKS</div>
+<h2>My Gallery</h2>
+<p class="section-desc">รวบรวมผลงานที่ผ่านมา ตั้งแต่ปกนิยาย แฟนอาร์ท ไปจนถึงการออกแบบตัวละคร ✨</p>
+</div>
+</div>
+<div class="works">
+<article class="card gallery-card interactive-gallery" role="button" tabindex="0"
+  data-style="Book Cover"
+  data-images="assets/images/gallery/book-cover-1.jpg|assets/images/gallery/book-cover-2.jpg|assets/images/gallery/book-cover-3.jpg|assets/images/gallery/book-cover-4.jpg|assets/images/gallery/book-cover-5.jpg|assets/images/gallery/book-cover-6.jpg">
+<div class="art one">
+<img class="gallery-preview-img" src="assets/images/gallery/book-cover-1.jpg" alt="ตัวอย่างผลงาน Book Cover" loading="lazy"/>
+<div class="label">BOOK COVER</div>
+<div class="view-pill">ดูผลงานเพิ่มเติม →</div>
+</div>
+<div class="card-body">
+<div class="type">Type 01</div>
+<h3>BOOK COVER</h3>
+<p>วาดปกนิยายให้เข้ากับเรื่องและบรรยากาศ
+ไม่ว่าจะเป็นแนวแฟนตาซี โรแมนซ์ ดราม่า และสยองขวัญ </p>
+</div>
+</article>
+<article class="card gallery-card interactive-gallery" role="button" tabindex="0"
+  data-style="Fanart / OC"
+  data-images="assets/images/gallery/fanart-1.jpg|assets/images/gallery/fanart-2.jpg|assets/images/gallery/fanart-3.jpg|assets/images/gallery/fanart-4.jpg|assets/images/gallery/fanart-5.jpg|assets/images/gallery/fanart-6.jpg">
+<div class="art two">
+<img class="gallery-preview-img" src="assets/images/gallery/fanart-1.jpg" alt="ตัวอย่างผลงาน Fanart / OC" loading="lazy"/>
+<div class="label">FANART</div>
+<div class="view-pill">ดูผลงานเพิ่มเติม →</div>
+</div>
+<div class="card-body">
+<div class="type">Type 02</div>
+<h3>Fanart/OC</h3>
+<p>วาดตัวละครที่ชื่นชอบ เหมาะสำหรับงานส่วนตัว ลงคอมมู หรือของแจก Giveaway </p>
+</div>
+</article>
+<article class="card gallery-card interactive-gallery" role="button" tabindex="0"
+  data-style="Adoptable Character"
+  data-images="assets/images/gallery/character-1.jpg|assets/images/gallery/character-2.jpg|assets/images/gallery/character-3.jpg|assets/images/gallery/character-4.jpg|assets/images/gallery/character-5.jpg|assets/images/gallery/character-6.jpg">
+<div class="art three">
+<img class="gallery-preview-img" src="assets/images/gallery/character-1.jpg" alt="ตัวอย่างผลงาน Adoptable Character" loading="lazy"/>
+<div class="label">CHARACTER</div>
+<div class="view-pill">ดูผลงานเพิ่มเติม →</div>
+</div>
+<div class="card-body">
+<div class="type">Type 03</div>
+<h3>Adoptable Character</h3>
+<p>ออกแบบตัวละครใหม่ หรือเลือกตัวละครที่มีอยู่แล้ว สามารถนำไปใช้ภายใต้เงื่อนไขที่กำหนด
+ </p>
+</div>
+</article>
+</div>
+<div class="notice"><strong>♡ กดที่การ์ดใน My Gallery</strong> เพื่อเปิดดูผลงานเพิ่มเติม เลือกภาพย่อหรือกดลูกศรเพื่อเลื่อนดูได้ค่ะ</div>
+</div>
+</section>
+
+<section class="process-section" id="process">
+<div class="wrap">
+<div class="section-head">
+<div>
+<div class="section-kicker">How It Works</div>
+<h2>ขั้นตอนการสั่งงานแบบง่าย ๆ ♡</h2>
+<p class="section-desc">เพียง 4 ขั้นตอน ก็เปลี่ยนไอเดียของคุณให้กลายเป็นภาพที่ชอบได้แล้ว ♡</p>
+</div>
+</div>
+<div class="process">
+<article class="step">
+<span class="num">01</span>
+<strong>ส่งบรีฟและ Reference</strong>
+<p>บอกสไตล์งานที่สนใจ สเกล ตัวละคร Mood&Tone และแนบรูปเพื่อความชัดเจนของงานค่ะ </p>
+</article>
+<article class="step">
+<span class="num">02</span>
+<strong>สรุปราคาและจองคิว</strong>
+<p>เมื่อรายละเอียดลงตัวแล้ว ต้องจองคิวด้วยการชำระเงิน 50% ของราคาเต็ม และเรียงคิวตามลำดับเวลาที่ชำระเงิน</p>
+</article>
+<article class="step">
+<span class="num">03</span>
+<strong>เริ่มวาดและตรวจงาน</strong>
+<p>ใช้เวลาทำงานประมาณ 3-60 วันตามรายละเอียดงาน พร้อมแก้ไขฟรีได้ 3 ครั้งตามเงื่อนไข</p>
+</article>
+<article class="step">
+<span class="num">04</span>
+<strong>ส่งมอบไฟล์</strong>
+<p>เมื่อชำระส่วนที่เหลือและยืนยันงานเรียบร้อย จะส่งไฟล์ PNG, JPG และ PSD ผ่าน Gmail หรือ Google Drive</p>
+</article>
+</div>
+</div>
+</section>
+<section class="commission-section" id="commission">
+<div class="wrap">
+<div class="section-head">
+<div>
+<div class="section-kicker">Commission</div>
+<h2>อยากให้สายรุ้งวาดอะไร? 🎀</h2>
+<p class="section-desc">เลือกสไตล์งานและสเกลที่ต้องการได้เลยค่ะ ถ้ายังไม่แน่ใจ สามารถส่งบรีฟมาคุยกันก่อนได้ ♡</p>
+</div>
+</div>
+<div class="commission-work-box">
+<div>
+<h3>รับงานประมาณไหนบ้าง?</h3>
+<p>งานวาดตัวละคร ภาพประกอบ และงานออกแบบตัวละคร สามารถคุยรายละเอียดให้เหมาะกับโปรเจกต์ได้ค่ะ</p>
+</div>
+<div class="commission-types">
+<span>✓ Fanart / OC</span>
+<span>✓ Character Illustration</span>
+<span>✓ Novel / Book Cover</span>
+<span>✓ Character Design / Adoptable</span>
+</div>
+</div>
+<div class="scale-price-card">
+<div class="scale-price-head">
+<div>
+<div class="section-kicker">PRICE BY SCALE</div>
+<h3>ตารางสเกลตัวละคร</h3>
+<p>เลือกสเกลของตัวละครที่ต้องการเพื่อใช้ประกอบการบรีฟงาน ส่วนราคาสามารถระบุเพิ่มในตารางได้ภายหลังค่ะ</p>
+</div>
+<div class="scale-note">♡ ราคาอาจเปลี่ยนตามรายละเอียด ฉาก และการใช้งาน</div>
+</div>
+<div class="scale-table-wrap">
+<table class="scale-table">
+<thead>
+<tr>
+<th>สเกล</th>
+<th>ขอบเขตภาพ</th>
+<th>ราคา</th>
+</tr>
+</thead>
+<tbody>
+<tr><td><span class="scale-badge">01</span><strong>หัว</strong></td><td>Headshot</td><td class="scale-price">250 THB / 8 USD </td></tr>
+<tr><td><span class="scale-badge">02</span><strong>อก</strong></td><td>Bust Up</td><td class="scale-price">350  THB / 11 USD </td></tr>
+<tr><td><span class="scale-badge">03</span><strong>เอว</strong></td><td>Waist Up</td><td class="scale-price">400 THB / 13 USD </td></tr>
+<tr><td><span class="scale-badge">04</span><strong>เข่า</strong></td><td>Knee Up</td><td class="scale-price">450 THB / 15 USD </td></tr>
+<tr><td><span class="scale-badge">05</span><strong>เท้า</strong></td><td>Full Body</td><td class="scale-price">500 THB / 17 USD </td></tr>
+</tbody> 
+</table>
+</div>
+
+</div>
+</div>
+</section>
+<section class="terms-section" id="terms">
+<div class="wrap">
+<div class="section-head">
+<div>
+<div class="section-kicker">Terms of Service</div>
+<h2>รายละเอียดก่อนสั่งงาน ♡</h2>
+<p class="section-desc">เงื่อนไขเบื้องต้นสำหรับการจองคิว การแก้งาน การยกเลิก และการส่งมอบไฟล์ กรุณาอ่านก่อนเริ่มงานนะคะ</p>
+</div>
+</div>
+<div class="terms-board">
+<article class="term-card"><span class="term-num">01</span><div><h3>Commercial Use</h3><p>นำงานไปใช้ใน <strong>เชิงพาณิชย์</strong> รบกวนแจ้งก่อนสั่งงาน</p></div></article>
+<article class="term-card"><span class="term-num">02</span><div><h3>Queue Deposit</h3><p>จองคิวต้องชำระเงิน <strong>50%</strong> ของราคาเต็ม</p></div></article>
+<article class="term-card"><span class="term-num">03</span><div><h3>Queue Order</h3><p>เรียงคิวตามลำดับเวลาที่ชำระเงิน</p></div></article>
+<article class="term-card"><span class="term-num">04</span><div><h3>Timeline</h3><p>ระยะเวลาทำงาน <strong>3-60 วัน</strong>ตามรายละเอียดงาน งานเร่งมีค่าบริการเพิ่มเติม </p></div></article>
+<article class="term-card"><span class="term-num">05</span><div><h3>Revision</h3><p>แก้งานฟรีจนกว่าจะคอมเฟิร์มบรีฟ หลังจากนั้นแก้ไข<strong>ฟรี 3 ครั้ง</strong></p></div></article>
+<article class="term-card"><span class="term-num">06</span><div><h3>Delivery</h3><p>ส่งงานผ่าน <strong>Gmail / Google Drive </strong>  หรือที่ลูกค้าสะดวก </p></div></article>
+<article class="term-card"><span class="term-num">07</span><div><h3>Cancel Before Queue</h3><p>หากยกเลิกงานก่อนถึงคิว คืน <strong>50%</strong> ของจำนวนเงินที่ชำระแล้ว</p></div></article>
+<article class="term-card"><span class="term-num">08</span><div><h3>Cancel After Start</h3><p>หากยกเลิกหลังจากนักวาดเริ่มงานแล้ว <strong>ไม่คืนเงินทุกกรณี</strong></p></div></article>
+<article class="term-card"><span class="term-num">09</span><div><h3>Portfolio Use</h3><p>ผลงานจะถูกนำไปเก็บใส่ Portflio โดย <strong>ใส่ลายน้ำ</strong> ภายใต้ข้อตกลง</p></div></article>
+<article class="term-card"><span class="term-num">10</span><div><h3>Final Files</h3><p>ไฟล์ที่ได้รับ: <strong>PNG · JPG · PSD </strong> หรือไฟล์อื่น ๆ ที่ลูกค้าต้องการ </p></div></article>
+</div>
+<div class="terms-tip">
+<span>✦</span>
+<p><strong>Note:</strong> หากมีรายละเอียดเฉพาะของ project สามารถแจ้งและตกลงเพิ่มเติมก่อนเริ่มงานได้ค่ะ</p>
+</div>
+</div>
+</section>
+<section id="faq">
+<div class="wrap">
+<div class="section-head">
+<div>
+<div class="section-kicker">FAQ</div>
+<h2>ก่อนสั่งงาน มีอะไรที่ควรรู้บ้าง?</h2>
+<p class="section-desc">รวมคำถามเบื้องต้นที่ลูกค้ามักสงสัยค่ะ</p>
+</div>
+</div>
+<div class="faq">
+<details>
+<summary>ชำระเงินผ่านช่องทางไหนบ้าง?</summary>
+<p>สามารถชำระผ่านแอปธนาคารหรือพร้อมเพย์ได้ค่ะ ♡ โดยจะแบ่งชำระเป็น 2 รอบ คือ รอบจองคิว และ รอบสุดท้ายก่อนรับภาพ Final ค่ะ</p>
+</details>
+<details>
+<summary>ถ้าสายรุ้งวาดผิด จำนวนครั้งในการแก้จะถูกนับไหม?</summary>
+<p>ไม่นับค่ะ ♡ หากเป็นความผิดพลาดจากทางสายรุ้งเอง สามารถแก้ไขได้โดยไม่หักจำนวนครั้งในการแก้ จะเริ่มนับจำนวนครั้งก็ต่อเมื่อ คอนเฟิร์มท่าโพสและ Mood & Tone ของภาพเรียบร้อยแล้ว เท่านั้น ถ้าเกิน 3 ครั้งจะมีค่าใช้จ่ายเพิ่มเติมค่ะ </p>
+</details>
+<details>
+<summary>ใช้ผลงานเชิงพาณิชย์ได้ไหม?</summary>
+<p>ได้ค่ะ ♡ ต้องแจ้งวัตถุประสงค์การใช้งานเชิงพาณิชย์ก่อนสั่งงาน กรณีสั่งสำหรับใช้ส่วนตัว แต่ต้องการนำไปใช้เชิงพาณิชย์ภายหลัง สามารถทักมาสอบถามและชำระเงินเพิ่มเติมได้ค่ะ</p>
+</details>
+<details>
+<summary>ใช้เวลาทำงานนานเท่าไร?</summary>
+<p>โดยทั่วไปใช้เวลาประมาณ 3–60 วันค่ะ ♡ ระยะเวลาอาจแตกต่างกันตามรายละเอียดและความซับซ้อนของงาน โดยจะเริ่มนับตั้งแต่วันที่สายรุ้งทักแจ้งว่าเริ่มคิวแล้ว และคิวงานจะเรียงตามลำดับเวลาที่ชำระเงินค่ามัดจำค่ะ </p>
+</details>
+<details>
+<summary>หากต้องการยกเลิกงานทำอย่างไร?</summary>
+<p>แจ้งสายรุ้งตรง ๆ ได้เลยค่ะ ว่าไม่สะดวก หรือเกิดปัญหาอะไรขึ้น หากยกเลิกก่อนถึงคิว จะคืน 50% ของจำนวนเงินที่ชำระแล้ว แต่หากนักวาดเริ่มงานแล้วจะไม่คืนเงินทุกกรณีค่ะ !!</p>
+</details>
+<details>
+<summary>ถ้าสามารถสั่งงานแบบความลับได้มั้ย?</summary>
+<p>ได้เลยค่ะ ♡ หากเป็นงานที่ยังไม่ได้เปิด หรือเป็น project ลับ สายรุ้งจะรอให้คุณลูกค้าโพสต์ผลงานบนแพลตฟอร์มของตัวเองก่อน แล้วจึงค่อยนำผลงานมาใส่ใน Portfolio ภายหลังค่ะ </p>
+</details>
+</div>
+</div>
+</section>
+<section id="contact" class="contact-section">
+<div class="wrap">
+  <div class="contact-shell">
+    <div class="contact-intro">
+      <div class="section-kicker">Let's Create Together</div>
+      <h2>ส่งบรีฟให้สายรุ้งได้ตรงนี้เลย ♡</h2>
+      <p>กรอกรายละเอียดคร่าว ๆ ได้เลยค่ะ ยังไม่จำเป็นต้องลงดีเทลมาก ก่อนส่งสามารถตรวจและแก้ข้อความในแอปอีเมลได้อีกครั้งนะคะ 🌷</p>
+    </div>
+
+    <div class="commission-contact-grid">
+      <form class="brief-form-card" id="commissionBriefForm" data-email="bymyblueboo@gmail.com" data-web-app-url="https://script.google.com/macros/s/AKfycbwuOWZvP3TDniYH9O6meJVx3lr_00HLiVLLrsRZpVq193UMV01gY86qXmCUjQcgFBs-/exec">
+        <!-- เปลี่ยน data-email ด้านบนเป็นอีเมลจริงของ Thewinterqx ก่อนเผยแพร่เว็บไซต์ -->
+        <div class="brief-form-head">
+          <div>
+            <h3>Commission Brief Form</h3>
+            <p>ช่องที่มี <span style="color:var(--pink)">*</span> แนะนำให้กรอกเพื่อประเมินงานได้เร็วขึ้น</p>
+          </div>
+          <div class="brief-chip">♡ No perfect brief needed</div>
+        </div>
+
+        <div class="brief-grid">
+          <div class="brief-field">
+            <label for="briefName">ชื่อ / Nickname <span>*</span></label>
+            <input id="briefName" name="name" type="text" placeholder="เช่น สายรุ้ง" required>
+          </div>
+          <div class="brief-field">
+            <label for="briefContact">ช่องทางติดต่อกลับ <span>*</span></label>
+            <input id="briefContact" name="contact" type="text" placeholder="ระบุชื่อแอคเคาท์/อีเมล/เบอร์โทรศัพท์" required>
+          </div>
+
+          <div class="brief-field">
+            <label for="briefType">ประเภทงาน <span>*</span></label>
+            <select id="briefType" name="type" required>
+              <option value="">— เลือกประเภทงาน —</option>
+              <option>Fanart / OC</option>
+              <option>Character Illustration</option>
+              <option>Novel / Book Cover</option>
+              <option>Character Design / Adoptable</option>
+              <option>อื่น ๆ / อยากคุยก่อน</option>
+            </select>
+          </div>
+          <div class="brief-field">
+            <label for="briefStyle">Art Style <span>*</span></label>
+            <select id="briefStyle" name="style" required>
+              <option value="">— เลือกสไตล์ —</option>
+              <option>Pencil & Texture</option>
+              <option>Full Color</option>
+              <option>Rough Color</option>
+              <option>ยังไม่แน่ใจ อยากให้สายรุ้งแนะนำ</option>
+            </select>
+          </div>
+
+          <div class="brief-field">
+            <label for="briefScale">สเกลภาพ <span>*</span></label>
+            <select id="briefScale" name="scale" required>
+              <option value="">— เลือกสเกล —</option>
+              <option>Headshot / หัว</option>
+              <option>Bust Up / อก</option>
+              <option>Waist Up / เอว</option>
+              <option>Knee Up / เข่า</option>
+              <option>Full Body / เต็มตัว</option>
+              <option>ไม่แน่ใจ / ไม่เกี่ยวกับงานนี้</option>
+            </select>
+          </div>
+          <div class="brief-field">
+            <label for="briefCharacters">จำนวนตัวละคร</label>
+            <select id="briefCharacters" name="characters">
+              <option>1 ตัวละคร</option>
+              <option>2 ตัวละคร</option>
+              <option>3 ตัวละคร</option>
+              <option>4+ ตัวละคร / ขอประเมินเพิ่มเติม</option>
+              <option>ไม่มีตัวละคร</option>
+            </select>
+          </div>
+
+          <div class="brief-field">
+            <label for="briefUsage">การนำไปใช้งาน <span>*</span></label>
+            <select id="briefUsage" name="usage" required>
+              <option value="">— เลือกการใช้งาน —</option>
+              <option>Personal Use / ใช้ส่วนตัว</option>
+              <option>Commercial Use / เชิงพาณิชย์</option>
+              <option>ยังไม่แน่ใจ ขอปรึกษาก่อน</option>
+            </select>
+          </div>
+          <div class="brief-field">
+            <label for="briefDeadline">Deadline</label>
+            <input id="briefDeadline" name="deadline" type="date">
+            <div class="brief-help">ถ้าไม่มีวันเร่งด่วน สามารถเว้นไว้ได้ค่ะ</div>
+          </div>
+
+          <div class="brief-field full">
+            <label for="briefDetails">รายละเอียดบรีฟ <span>*</span></label>
+            <textarea id="briefDetails" name="details" placeholder="เช่น คาแรกเตอร์ / โพส / เสื้อผ้า / โทนสี / สีหน้า / บรรยากาศ / ขนาดงาน หรือสิ่งสำคัญที่อยากให้มีในภาพ" required></textarea>
+          </div>
+
+          <div class="brief-field full">
+            <label for="briefRefs">Reference Links</label>
+            <textarea id="briefRefs" name="references" placeholder="วางลิงก์ Google Drive, Pinterest, Toyhouse หรือ URL อื่น ๆ ได้หลายลิงก์ แยกบรรทัดกัน"></textarea>
+            <div class="brief-help">หากต้องการแนบไฟล์ภาพโดยตรง สามารถเพิ่มไฟล์ในอีเมลหลังจากกดส่งบรีฟได้ค่ะ</div>
+          </div>
+
+          <div class="brief-field full">
+            <label for="briefNotes">หมายเหตุเพิ่มเติม</label>
+            <textarea id="briefNotes" name="notes" placeholder="มีอะไรอยากบอกเพิ่มเติม เช่น ขอเก็บงานเป็นความลับก่อนวันเปิดตัว หรือคำถามเกี่ยวกับราคา"></textarea>
+          </div>
+        </div>
+
+        <div class="brief-consent">
+          <input id="briefTerms" name="terms" type="checkbox" required>
+          <label for="briefTerms">ฉันได้อ่าน <a href="#terms">Terms of Service</a> และเข้าใจเงื่อนไขเบื้องต้นแล้ว ♡</label>
+        </div>
+
+        <div class="brief-actions">
+          <button class="brief-submit" type="submit">💌 ส่งบรีฟเข้าระบบ</button>
+          <button class="brief-copy" id="copyBriefButton" type="button">คัดลอกบรีฟ</button>
+        </div>
+        <div class="brief-status" id="briefStatus" aria-live="polite"></div>
+      </form>
+
+      <aside class="before-send-card">
+        <div class="section-kicker">Before You Send</div>
+        <h3>ไม่ต้องบรีฟให้เป๊ะตั้งแต่แรกนะคะ ♡</h3>
+        <div class="before-list">
+          <div class="before-item"><div class="before-icon">01</div><div><strong>ไอเดียคร่าว ๆ ก็ส่งได้</strong><span>มีแค่ mood, reference หรือคอนเซปต์สั้น ๆ ก็เริ่มคุยกันได้ค่ะ</span></div></div>
+          <div class="before-item"><div class="before-icon">02</div><div><strong>ระยะเวลา 3-60 วัน</strong><span>อาจเปลี่ยนตามรายละเอียดและจำนวนคิว กรุณาระบุ Deadline หากมีค่ะ</span></div></div>
+          <div class="before-item"><div class="before-icon">03</div><div><strong>Commercial กรุณาแจ้งก่อน</strong><span>เพื่อประเมินขอบเขตการใช้งานและราคาให้ถูกต้องตั้งแต่ต้น</span></div></div>
+          <div class="before-item"><div class="before-icon">04</div><div><strong>Reference ช่วยได้มาก</strong><span>ภาพตัวละคร เสื้อผ้า สี หรือบรรยากาศที่ชอบ ช่วยให้คุยกันเข้าใจเร็วขึ้นค่ะ</span></div></div>
+        </div>
+
+        <div class="contact-preview">
+          <small>หลังจากกดปุ่ม</small>
+          <strong>ระบบจะเปิดแอป Email ของคุณ ✉</strong>
+          <p>หัวข้อและบรีฟจะถูกจัดให้อัตโนมัติ คุณสามารถตรวจ แก้ข้อความ และแนบรูปเพิ่มเติมก่อนกดส่งจริงได้ค่ะ</p>
+        </div>
+
+        <div class="contact-social-title">☁ อยากคุยก่อนก็ทักมาได้เลย</div>
+        <div class="contact-socials">
+          <!-- เปลี่ยน href เป็นลิงก์จริงของคุณ -->
+          <a class="social" href="https://instagram.com/" target="_blank" rel="noreferrer"><span>Instagram</span><span>↗</span></a>
+          <a class="social" href="https://x.com/" target="_blank" rel="noreferrer"><span>X / Twitter</span><span>↗</span></a>
+          <a class="social" href="https://facebook.com/" target="_blank" rel="noreferrer"><span>Facebook</span><span>↗</span></a>
+          <a class="social" href="mailto:your-email@example.com"><span>Email</span><span>✉</span></a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</div>
+</section>
+<div aria-hidden="true" class="style-modal" id="styleModal">
+<div class="style-modal-backdrop" data-close-modal=""></div>
+<div aria-labelledby="styleModalTitle" aria-modal="true" class="style-modal-panel" role="dialog">
+<button aria-label="ปิดแกลเลอรี" class="style-modal-close" data-close-modal="" type="button">×</button>
+<div class="style-modal-head">
+<div class="section-kicker" id="styleModalKicker">GALLERY</div>
+<h3 id="styleModalTitle">Art Style</h3>
+<p>คลิกภาพย่อด้านล่างเพื่อเลือกดูผลงาน</p>
+</div>
+<div class="style-modal-main">
+<button class="gallery-nav prev" id="galleryPrev" type="button" aria-label="ภาพก่อนหน้า">‹</button>
+<img alt="ผลงานตัวอย่าง" id="styleMainImage" src=""/>
+<div class="modal-image-fallback" id="modalImageFallback"><span>♡</span><small>เพิ่มรูปผลงานตามชื่อไฟล์ที่กำหนดไว้</small></div>
+<button class="gallery-nav next" id="galleryNext" type="button" aria-label="ภาพถัดไป">›</button>
+<div class="gallery-counter" id="galleryCounter">1 / 1</div>
+</div>
+<div class="style-thumbs" id="styleThumbs"></div>
+</div>
+</div>
+</main>
+<footer>
+    © 2026 Thewinterqx · Freelance Illustrator · Made with ♡
+  </footer>
+<script>
+    (() => {
+      const modal = document.getElementById('styleModal');
+      const kicker = document.getElementById('styleModalKicker');
+      const title = document.getElementById('styleModalTitle');
+      const mainImage = document.getElementById('styleMainImage');
+      const fallback = document.getElementById('modalImageFallback');
+      const thumbs = document.getElementById('styleThumbs');
+      const prevButton = document.getElementById('galleryPrev');
+      const nextButton = document.getElementById('galleryNext');
+      const counter = document.getElementById('galleryCounter');
+
+      let lastTrigger = null;
+      let currentImages = [];
+      let currentName = '';
+      let currentIndex = 0;
+
+      function showMain(index) {
+        if (!currentImages.length) return;
+
+        currentIndex = (index + currentImages.length) % currentImages.length;
+        const src = currentImages[currentIndex];
+        const alt = `${currentName} ตัวอย่าง ${currentIndex + 1}`;
+
+        mainImage.style.display = 'block';
+        fallback.style.display = 'grid';
+        mainImage.alt = alt;
+        mainImage.src = src;
+        mainImage.onload = () => { fallback.style.display = 'none'; };
+        mainImage.onerror = () => {
+          mainImage.style.display = 'none';
+          fallback.style.display = 'grid';
+        };
+
+        [...thumbs.children].forEach((btn, i) => btn.classList.toggle('active', i === currentIndex));
+        counter.textContent = `${currentIndex + 1} / ${currentImages.length}`;
+
+        const showNavigation = currentImages.length > 1;
+        prevButton.style.display = showNavigation ? 'grid' : 'none';
+        nextButton.style.display = showNavigation ? 'grid' : 'none';
+      }
+
+      function openGallery(card) {
+        lastTrigger = card;
+        currentName = card.dataset.style || 'Gallery';
+        currentImages = (card.dataset.images || '').split('|').map(s => s.trim()).filter(Boolean);
+        currentIndex = 0;
+
+        title.textContent = currentName;
+        kicker.textContent = card.classList.contains('interactive-gallery') ? 'MY GALLERY' : 'STYLE GALLERY';
+        thumbs.innerHTML = '';
+
+        currentImages.forEach((src, index) => {
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.className = 'style-thumb' + (index === 0 ? ' active' : '');
+          button.setAttribute('aria-label', `ดูภาพที่ ${index + 1} ของ ${currentName}`);
+
+          const img = document.createElement('img');
+          img.src = src;
+          img.alt = `${currentName} ตัวอย่าง ${index + 1}`;
+          img.loading = 'lazy';
+          img.onerror = () => { img.style.display = 'none'; };
+
+          const ph = document.createElement('span');
+          ph.className = 'style-thumb-fallback';
+          ph.textContent = `ภาพ ${index + 1}`;
+
+          button.append(ph, img);
+          button.addEventListener('click', () => showMain(index));
+          thumbs.appendChild(button);
+        });
+
+        if (currentImages.length) {
+          showMain(0);
+        } else {
+          mainImage.style.display = 'none';
+          fallback.style.display = 'grid';
+          counter.textContent = '0 / 0';
+          prevButton.style.display = 'none';
+          nextButton.style.display = 'none';
+        }
+
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('modal-open');
+        modal.querySelector('.style-modal-close').focus();
+      }
+
+      function closeGallery() {
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('modal-open');
+        mainImage.src = '';
+        if (lastTrigger) lastTrigger.focus();
+      }
+
+      document.querySelectorAll('.interactive-style, .interactive-gallery').forEach(card => {
+        const previewImg = card.querySelector('.style-preview > img, .gallery-preview-img');
+        if (previewImg) previewImg.onerror = () => { previewImg.style.display = 'none'; };
+
+        card.addEventListener('click', () => openGallery(card));
+        card.addEventListener('keydown', e => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openGallery(card);
+          }
+        });
+      });
+
+      prevButton.addEventListener('click', event => {
+        event.stopPropagation();
+        showMain(currentIndex - 1);
+      });
+
+      nextButton.addEventListener('click', event => {
+        event.stopPropagation();
+        showMain(currentIndex + 1);
+      });
+
+      modal.querySelectorAll('[data-close-modal]').forEach(el => el.addEventListener('click', closeGallery));
+
+      document.addEventListener('keydown', e => {
+        if (!modal.classList.contains('is-open')) return;
+        if (e.key === 'Escape') closeGallery();
+        if (e.key === 'ArrowLeft') showMain(currentIndex - 1);
+        if (e.key === 'ArrowRight') showMain(currentIndex + 1);
+      });
+    })();
+  </script>
+
+<script>
+  (() => {
+    const slider = document.getElementById('artistPhotoSlider');
+    if (!slider) return;
+
+    const slides = [...slider.querySelectorAll('.artist-slide')];
+    const dots = [...slider.querySelectorAll('.artist-photo-dot')];
+    const prev = document.getElementById('artistPrev');
+    const next = document.getElementById('artistNext');
+    const placeholder = slider.querySelector('.artist-photo-placeholder');
+    let current = 0;
+    let touchStartX = 0;
+
+    function show(index) {
+      current = (index + slides.length) % slides.length;
+      slides.forEach((slide, i) => slide.classList.toggle('active', i === current));
+      dots.forEach((dot, i) => dot.classList.toggle('active', i === current));
+    }
+
+    slides.forEach((slide, i) => {
+      slide.addEventListener('load', () => {
+        if (i === current) placeholder.style.display = 'none';
+      });
+      slide.addEventListener('error', () => {
+        slide.style.display = 'none';
+      });
+      if (slide.complete && slide.naturalWidth > 0 && i === current) placeholder.style.display = 'none';
+    });
+
+    prev?.addEventListener('click', () => show(current - 1));
+    next?.addEventListener('click', () => show(current + 1));
+    dots.forEach((dot, i) => dot.addEventListener('click', () => show(i)));
+
+    slider.addEventListener('touchstart', e => {
+      touchStartX = e.changedTouches[0]?.clientX || 0;
+    }, {passive:true});
+    slider.addEventListener('touchend', e => {
+      const touchEndX = e.changedTouches[0]?.clientX || 0;
+      const diff = touchEndX - touchStartX;
+      if (Math.abs(diff) < 45) return;
+      show(diff > 0 ? current - 1 : current + 1);
+    }, {passive:true});
+  })();
+</script>
+
+<script>
+  (() => {
+    const form = document.getElementById('commissionBriefForm');
+    if (!form) return;
+
+    const copyButton = document.getElementById('copyBriefButton');
+    const status = document.getElementById('briefStatus');
+
+    const valueOf = id => (document.getElementById(id)?.value || '').trim();
+
+    function buildBrief() {
+      const deadlineRaw = valueOf('briefDeadline');
+      let deadline = 'ไม่มี / ไม่ระบุ';
+      if (deadlineRaw) {
+        const [y,m,d] = deadlineRaw.split('-');
+        deadline = `${d}/${m}/${y}`;
+      }
+
+      return [
+        'Commission Brief — Thewinterqx',
+        '',
+        `Name / Nickname: ${valueOf('briefName') || '-'}`,
+        `Contact: ${valueOf('briefContact') || '-'}`,
+        `Commission Type: ${valueOf('briefType') || '-'}`,
+        `Art Style: ${valueOf('briefStyle') || '-'}`,
+        `Scale: ${valueOf('briefScale') || '-'}`,
+        `Characters: ${valueOf('briefCharacters') || '-'}`,
+        `Usage: ${valueOf('briefUsage') || '-'}`,
+        `Deadline: ${deadline}`,
+        '',
+        'Brief:',
+        valueOf('briefDetails') || '-',
+        '',
+        'Reference Links:',
+        valueOf('briefRefs') || '-',
+        '',
+        'Additional Notes:',
+        valueOf('briefNotes') || '-',
+        '',
+        'I have read the Terms of Service: Yes'
+      ].join('\n');
+    }
+
+    function buildPayload() {
+      return {
+        name: valueOf('briefName'),
+        contact: valueOf('briefContact'),
+        type: valueOf('briefType'),
+        style: valueOf('briefStyle'),
+        scale: valueOf('briefScale'),
+        characters: valueOf('briefCharacters'),
+        usage: valueOf('briefUsage'),
+        deadline: valueOf('briefDeadline'),
+        details: valueOf('briefDetails'),
+        references: valueOf('briefRefs'),
+        notes: valueOf('briefNotes'),
+        terms: document.getElementById('briefTerms')?.checked === true,
+        source: 'thewinterqx-website'
+      };
+    }
+
+    function openEmailFallback() {
+      const email = (form.dataset.email || '').trim();
+      if (!email || email === 'your-email@example.com') return false;
+      const name = valueOf('briefName') || 'Client';
+      const type = valueOf('briefType') || 'Commission';
+      const subject = `[Commission] ${type} — ${name}`;
+      const mailto = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(buildBrief())}`;
+      window.location.href = mailto;
+      return true;
+    }
+
+    form.addEventListener('submit', async event => {
+      event.preventDefault();
+      if (!form.reportValidity()) return;
+
+      const webAppUrl = (form.dataset.webAppUrl || '').trim();
+      const hasBackend = webAppUrl && !webAppUrl.includes('PASTE_YOUR_WEB_APP_URL_HERE');
+
+      if (!hasBackend) {
+        status.textContent = 'ยังไม่ได้เชื่อม Google Sheets — กำลังเปิดอีเมลสำรองให้ค่ะ ♡';
+        if (!openEmailFallback()) {
+          status.textContent = '♡ กรุณาใส่ Web App URL หรืออีเมลจริงในโค้ดก่อนเผยแพร่เว็บไซต์';
+        }
+        return;
+      }
+
+      const submitButton = form.querySelector('.brief-submit');
+      const oldLabel = submitButton.textContent;
+      submitButton.disabled = true;
+      submitButton.textContent = 'กำลังส่งบรีฟ...';
+      status.textContent = 'กำลังบันทึกข้อมูลเข้าคิวค่ะ ♡';
+
+      try {
+        await fetch(webAppUrl, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {'Content-Type': 'text/plain;charset=utf-8'},
+          body: JSON.stringify(buildPayload())
+        });
+        status.textContent = 'ส่งบรีฟเข้าระบบเรียบร้อยแล้วค่ะ ♡ สายรุ้งจะติดต่อกลับตามช่องทางที่แจ้งไว้';
+        form.reset();
+      } catch (error) {
+        status.textContent = 'ส่งเข้าระบบไม่สำเร็จ กำลังเปิดอีเมลสำรองให้ค่ะ';
+        openEmailFallback();
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = oldLabel;
+      }
+    });
+
+    copyButton?.addEventListener('click', async () => {
+      const brief = buildBrief();
+      try {
+        await navigator.clipboard.writeText(brief);
+        status.textContent = 'คัดลอกบรีฟแล้วค่ะ ♡ นำไปวางใน DM หรือ Email ได้เลย';
+      } catch (error) {
+        const area = document.createElement('textarea');
+        area.value = brief;
+        area.setAttribute('readonly','');
+        area.style.position = 'fixed';
+        area.style.opacity = '0';
+        document.body.appendChild(area);
+        area.select();
+        document.execCommand('copy');
+        area.remove();
+        status.textContent = 'คัดลอกบรีฟแล้วค่ะ ♡';
+      }
+    });
+  })();
+</script>
+
+</body>
+</html>
